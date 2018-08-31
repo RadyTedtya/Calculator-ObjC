@@ -35,9 +35,11 @@
                                                                              message:alertMessage
                                                                       preferredStyle:UIAlertControllerStyleAlert];
     //We add buttons to the alert controller by creating UIAlertActions:
-    UIAlertAction *actionOk = [UIAlertAction actionWithTitle:@"Ok"
-                                                       style:UIAlertActionStyleDefault
-                                                     handler:nil]; //You can use a block here to handle a press on this button
+    UIAlertAction *actionOk = [UIAlertAction
+                               actionWithTitle:@"Ok"
+                               style:UIAlertActionStyleDefault
+                               handler:nil];
+    //You can use a block here to handle a press on this button
     [alertController addAction:actionOk];
     [self presentViewController:alertController animated:YES completion:nil];
 }
@@ -65,14 +67,23 @@
     else if ([signS  isEqual: @"-"]){
         C = A - B;
         self.lblResult.text = [NSString stringWithFormat:@"%li - %li = %li",(long)A,(long)B,(long)C];
+        NSString *test = self.lblResult.text;
+        [mArrayHistory addObject:test];
+        NSLog(@"%@",mArrayHistory);
     }
     else if ([signS  isEqual: @"*"]){
         C = A * B;
         self.lblResult.text = [NSString stringWithFormat:@"%li * %li = %li",(long)A,(long)B,(long)C];
+        NSString *test = self.lblResult.text;
+        [mArrayHistory addObject:test];
+        NSLog(@"%@",mArrayHistory);
     }
     else if ([signS  isEqual: @"/"]){
         C = A / B;
-        self.lblResult.text = [NSString stringWithFormat:@"%li / %li = %li",(long)A,(long)B,(long)C];
+        self.lblResult.text = [NSString stringWithFormat:@"%li + %li = %li",(long)A,(long)B,(long)C];
+        NSString *test = self.lblResult.text;
+        [mArrayHistory addObject:test];
+        NSLog(@"%@",mArrayHistory);
     }
     else{
         [self showAlert:@"Nice Nice" andalertTitle:@"Error"];
